@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+</head>
+<body>
+    
+</body>
+<script src='js/calculator.js'></script>
+<script>
+    const tests = [
+        // 标准输入
+        {input:'-4*(3-2*(6-5))', output:-4},
+        {input:'(-4)-(3*-2)*(6/2-2)+1', output:3},
+        // 负号问题
+        {input:'-(-(-4))', output:-4},
+        {input:'-(-4)-(3*-2)*(6/2-2)+1', output:3},
+        // 异常输入
+        // {input:'', output:NaN},
+        // {input:'T.findObj("测试元件_测试")', output:NaN},
+        // {input:50, output:50},
+        // {input:'-', output:NaN}
+    ];
+
+    var calc = new Calculator;
+    console.log('开始测试');
+    tests.forEach(test => {
+        var res = calc.run(test.input);
+        console.log('input: '+test.input+' output: '+test.output);
+        console.log('res: '+res+' '+(res===test.output||res!==res&&test.output!==test.output ? 'correct' : 'wrong'));
+        console.log('===============================================');
+    });
+    console.log('测试完毕');
+</script>
+</html>
